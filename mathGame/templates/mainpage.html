@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+        <style>
+        .MyButtons {
+           width: 150px;
+           padding: 20px;
+           cursor: pointer;
+           font-weight: bold;
+           font-size: 150%;
+           background: #727A8B;
+           color: #fff;
+           border: 1px solid #000;
+           border-radius: 10px;
+           }
+        input.MyButton:hover {
+           float: bottom;
+           color: #000;
+           background: #000;
+           border: 1px solid #000;
+           }
+    </style>
+</head>
+<body>
+    {% if answer_incorrect %}
+       <h1>Incorrect! Try again</h1>
+    {% elif goahead %}
+       <h1>Right! Go ahead</h1>
+    {% else %}
+       <h1>Choose the correct answer</h1>
+    {% endif %}
+    <h3>Which image contains bigger number?</h3>
+    <img src="/static/{{ first }}">
+    <img src="/static/{{ second }}">
+    <div>
+        {% if bigger == "left" %}
+           <button class="MyButtons" onclick="location.href='http://127.0.0.1:8000/mathGame/'"
+                type="submit">Left</button>
+           <button class="MyButtons" onclick="location.href='http://127.0.0.1:8000/mathGame/?status=incorrect'"
+                type="sumbit">Right</button>
+        {% elif bigger == "right" %}
+           <button class="MyButtons" onclick="location.href='http://127.0.0.1:8000/mathGame/?status=incorrect'"
+                type="submit">Left</button>
+           <button class="MyButtons" onclick="location.href='http://127.0.0.1:8000/mathGame/'"
+                type="sumbit">Right</button>
+        {% endif %}
+    </div>
+</body>
+</html>
