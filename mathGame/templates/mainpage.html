@@ -21,9 +21,23 @@
            background: #000;
            border: 1px solid #000;
            }
+            .container{
+                width: 600px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
     </style>
 </head>
 <body>
+<div class="container">
     {% if answer_incorrect %}
        <h1>Incorrect! Try again</h1>
     {% elif goahead %}
@@ -32,8 +46,11 @@
        <h1>Choose the correct answer</h1>
     {% endif %}
     <h3>Which image contains bigger number?</h3>
-    <img src="/static/{{ first }}">
-    <img src="/static/{{ second }}">
+    <div>
+        <img src="/static/{{ first }}">
+        <img src="/static/{{ second }}">
+    </div>
+
     <div>
         {% if bigger == "left" %}
            <button class="MyButtons" onclick="location.href='http://127.0.0.1:8000/mathGame/'"
@@ -47,5 +64,7 @@
                 type="sumbit">Right</button>
         {% endif %}
     </div>
+</div>
+
 </body>
 </html>

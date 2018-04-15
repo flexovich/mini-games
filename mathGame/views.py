@@ -32,7 +32,7 @@ def mainpage(request):
 
     prev = [object1.image, object2.image]   # This variable saves last images every time for correct processing
                                             # of the situation when we need to display last images in first case
-    if time.time() - finish_time < 180:
+    if time.time() - finish_time < 5:
         finish_time = time.time()
         return render(request, "mainpage.html", {"first": object1.image, "second": object2.image,
                                                  "bigger": bigger_value, "goahead": True})
